@@ -1,4 +1,9 @@
 /**
+ * Set default environment
+ */
+ var default_environment = 'test'; // development, test, production
+
+/**
  * Module dependencies.
  */
 var express = require('express'),
@@ -13,7 +18,7 @@ var express = require('express'),
 
 //Load configurations
 //if test env, load example file
-var env = process.env.NODE_ENV || 'development',
+var env = process.env.NODE_ENV || default_environment,
     config = require('./config/config')[env],
     auth = require('./config/middlewares/authorization'),
     mongoose = require('mongoose');
